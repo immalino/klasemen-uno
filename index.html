@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Klasemen UNO</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container text-center">
+		<table class="table">
+			<thead class="output1"></thead>
+			<tbody class="output2"></tbody>
+		</table>
+	</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+	<script>
+		const url = 'https://docs.google.com/spreadsheets/d/1t8wuqMYwW3IlwpcfmOk8r-p6Trgt7oYyNomozvI6Uxg/gviz/tq?'
+
+		const output1 = document.querySelector('.output1');
+		const output2 = document.querySelector('.output2');
+
+		fetch(url)
+			.then(res => res.text())
+			.then(rep => {
+				const data = JSON.parse(rep.substr(47).slice(0, -2));
+				console.log(data)
+				const row = document.createElement('tr');
+				output1.append(row);
+				data.table.cols.forEach((heading) => {
+					console.log(heading)
+					const cell = document.createElement('th');
+					cell.textContent = heading.label;
+					row.append(cell);
+				})
+
+				const rows = data.table.rows;
+				rows.sort(function (a, b) {
+					var lastVValueA = a.c[a.c.length - 1].v;
+					var lastVValueB = b.c[b.c.length - 1].v;
+					return lastVValueB - lastVValueA;
+				});
+
+				data.table.rows.forEach((main) => {
+					const container = document.createElement('tr');
+					output2.append(container)
+					main.c.forEach((ele) => {
+						const cell = document.createElement('td');
+						cell.textContent = ele.v;
+						container.append(cell);
+
+					})
+				})
+				console.log(data)
+			})
+	</script>
+</body>
+
+</html>
