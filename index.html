@@ -10,17 +10,18 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
-    <div class="container text-center">
-      <table class="table">
+    <div class="container text-center mt-5">
+      <h2 class="text-start">The Real Top Global</h2>
+      <table class="table table-bordered mt-3">
         <thead class="output1 table-light"></thead>
         <tbody class="output2"></tbody>
       </table>
     </div>
-    <br />
-    <div class="container text-center">
+    <div class="container text-center mt-3">
       <table class="table">
         <thead class="table-light">
           <tr>
@@ -42,89 +43,51 @@
       </table>
     </div>
 
+    <div class="container mt-3">
+      <div class="row">
+        <a class="btn btn-light active" href="./top-telek.html" role="button"
+          >Klik untuk melihat <strong>"Top Global Telek"</strong></a
+        >
+      </div>
+      <div class="row mt-3">
+        <button class="btn btn-light active" onclick="togglePopup()">Tambah Pemain</button>
+      </div>
+    </div>
+
+    <!-- Pop up form container -->
+<div id="popupContainer" class="popup-form-container">
+  <!-- Pop up form -->
+  <div class="popup-form card" style="width: 18rem;">
+    <form  id="myForm" class="card-body">
+      <label for="namaInput" class="form-label">Masukan Nama Pemain</label>
+      <input type="text" class="form-control" name="Nama" id="namaInput"/><br/>
+
+      <label for="namaInput" class="form-label">1st</label>
+      <input type="text" class="form-control" name="1st" id="namaInput"/><br/>
+
+      <label for="namaInput" class="form-label">Biasa</label>
+      <input type="text" class="form-control" name="Biasa" id="namaInput"/><br/>
+
+      <label for="namaInput" class="form-label">Telek</label>
+      <input type="text" class="form-control" name="Telek" id="namaInput"/><br/>
+      
+      <button type="button" class="btn btn-primary" onclick="SubForm()">Submit</button>
+      <button type="button" class="btn btn-primary" onclick="togglePopup()">Cancel</button>
+    </form>
+  </div>
+</div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script>
-      const url =
-        "https://docs.google.com/spreadsheets/d/1t8wuqMYwW3IlwpcfmOk8r-p6Trgt7oYyNomozvI6Uxg/gviz/tq?";
-
-      const output1 = document.querySelector(".output1");
-      const output2 = document.querySelector(".output2");
-
-      fetch(url)
-        .then((res) => res.text())
-        .then((rep) => {
-          const data = JSON.parse(rep.substr(47).slice(0, -2));
-          console.log(data);
-
-          data.table.cols.unshift({
-            id: "A",
-            label: "#",
-            type: "number",
-            pattern: "General",
-          });
-          data.table.cols.splice(1, 0, {
-            id: "A",
-            label: "Main",
-            type: "number",
-            pattern: "General",
-          });
-
-          data.table.cols.push({
-            id: "F",
-            label: "Total Poin",
-            type: "number",
-            pattern: "General",
-          });
-
-          data.table.rows.forEach((row) => {
-            const nilai1 = row.c[1].v;
-            const nilai2 = row.c[2].v;
-            const nilai3 = row.c[3].v;
-
-            const totalPertama = nilai1 + nilai2 + nilai3;
-
-            const totalTerakhir = row.c[1].v * 2 + row.c[2].v + row.c[3].v * -1;
-
-            row.c.splice(1, 0, { v: totalPertama });
-
-            row.c.push({ v: totalTerakhir });
-          });
-
-					let counter = 1;
-          data.table.rows.forEach((row) => {
-            row.c.unshift({ "v": counter.toString() });
-						counter++;
-          });
-
-          const row = document.createElement("tr");
-          output1.append(row);
-          data.table.cols.forEach((heading) => {
-            const cell = document.createElement("th");
-            cell.textContent = heading.label;
-            row.append(cell);
-          });
-
-          const rows = data.table.rows;
-          rows.sort(function (a, b) {
-            var lastVValueA = a.c[a.c.length - 1].v;
-            var lastVValueB = b.c[b.c.length - 1].v;
-            return lastVValueB - lastVValueA;
-          });
-
-          data.table.rows.forEach((main) => {
-            const container = document.createElement("tr");
-            output2.append(container);
-            main.c.forEach((ele) => {
-              const cell = document.createElement("td");
-              cell.textContent = ele.v;
-              container.append(cell);
-            });
-          });
-        });
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
