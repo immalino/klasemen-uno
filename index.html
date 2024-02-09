@@ -103,7 +103,6 @@
           const row = document.createElement("tr");
           output1.append(row);
           data.table.cols.forEach((heading) => {
-            console.log(heading);
             const cell = document.createElement("th");
             cell.textContent = heading.label;
             row.append(cell);
@@ -125,7 +124,6 @@
               container.append(cell);
             });
           });
-          console.log(data);
         });
     </script>
   </body>
