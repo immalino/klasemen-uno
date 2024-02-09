@@ -98,7 +98,6 @@ function checkPopup() {
     // Jika sesuai, lakukan aksi yang diinginkan, misalnya menampilkan popup berikutnya
     toggleCheckPopup()
     togglePopup();
-    // Tambahkan logika untuk menampilkan popup berikutnya atau alihkan pengguna ke halaman berikutnya di sini
   } else {
     // Jika tidak sesuai, beri pesan peringatan
     alert("Kode yang dimasukkan tidak valid. Silakan coba lagi.");
@@ -136,3 +135,5 @@ function SubForm() {
   });
   togglePopup();
 }
+
+console.log("test");
