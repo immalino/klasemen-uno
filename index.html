@@ -45,37 +45,66 @@
 
     <div class="container mt-3">
       <div class="row">
-        <a class="btn btn-light active" href="./top-telek.html" role="button"
+        <a
+          class="btn btn-light active"
+          href="https://immalino.github.io/klasemen-uno/top-telek/top-telek.html"
+          role="button"
           >Klik untuk melihat <strong>"Top Global Telek"</strong></a
         >
       </div>
       <div class="row mt-3">
-        <button class="btn btn-light active" onclick="togglePopup()">Tambah Pemain</button>
+        <button class="btn btn-light active" onclick="togglePopup()">
+          Tambah Pemain
+        </button>
       </div>
     </div>
 
     <!-- Pop up form container -->
-<div id="popupContainer" class="popup-form-container">
-  <!-- Pop up form -->
-  <div class="popup-form card" style="width: 18rem;">
-    <form  id="myForm" class="card-body">
-      <label for="namaInput" class="form-label">Masukan Nama Pemain</label>
-      <input type="text" class="form-control" name="Nama" id="namaInput"/><br/>
+    <div id="popupContainer" class="popup-form-container">
+      <!-- Pop up form -->
+      <div class="popup-form card" style="width: 18rem">
+        <form id="myForm" class="card-body">
+          <label for="namaInput" class="form-label">Masukan Nama Pemain</label>
+          <input
+            type="text"
+            class="form-control"
+            name="Nama"
+            id="namaInput"
+          /><br />
 
-      <label for="namaInput" class="form-label">1st</label>
-      <input type="text" class="form-control" name="1st" id="namaInput"/><br/>
+          <label for="namaInput" class="form-label">1st</label>
+          <input
+            type="text"
+            class="form-control"
+            name="1st"
+            id="namaInput"
+          /><br />
 
-      <label for="namaInput" class="form-label">Biasa</label>
-      <input type="text" class="form-control" name="Biasa" id="namaInput"/><br/>
+          <label for="namaInput" class="form-label">Biasa</label>
+          <input
+            type="text"
+            class="form-control"
+            name="Biasa"
+            id="namaInput"
+          /><br />
 
-      <label for="namaInput" class="form-label">Telek</label>
-      <input type="text" class="form-control" name="Telek" id="namaInput"/><br/>
-      
-      <button type="button" class="btn btn-primary" onclick="SubForm()">Submit</button>
-      <button type="button" class="btn btn-primary" onclick="togglePopup()">Cancel</button>
-    </form>
-  </div>
-</div>
+          <label for="namaInput" class="form-label">Telek</label>
+          <input
+            type="text"
+            class="form-control"
+            name="Telek"
+            id="namaInput"
+          /><br />
+
+          <button type="button" class="btn btn-primary" onclick="SubForm()">
+            Submit
+          </button>
+          <button type="button" class="btn btn-primary" onclick="togglePopup()">
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.js"
