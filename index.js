@@ -77,6 +77,36 @@ fetch(url)
   });
 
 
+  // Fungsi untuk menampilkan/menyembunyikan pop up check
+function toggleCheckPopup() {
+  var popupCheckContainer = document.getElementById("popupCheckContainer");
+  if (popupCheckContainer.style.display === "none" || popupCheckContainer.style.display === "") {
+    popupCheckContainer.style.display = "block";
+    // Fokuskan input nama saat pop up ditampilkan
+    document.getElementById("namaInput").focus();
+  } else {
+    popupCheckContainer.style.display = "none";
+  }
+}
+
+function checkPopup() {
+  // Mengambil nilai input kode
+  var kode = document.getElementsByName("Kode")[0].value;
+
+  // Memeriksa apakah kode yang dimasukkan sesuai
+  if (kode === "112233") {
+    // Jika sesuai, lakukan aksi yang diinginkan, misalnya menampilkan popup berikutnya
+    toggleCheckPopup()
+    togglePopup();
+    // Tambahkan logika untuk menampilkan popup berikutnya atau alihkan pengguna ke halaman berikutnya di sini
+  } else {
+    // Jika tidak sesuai, beri pesan peringatan
+    alert("Kode yang dimasukkan tidak valid. Silakan coba lagi.");
+    toggleCheckPopup();
+  }
+}
+
+
 // Fungsi untuk menampilkan/menyembunyikan pop up form
 function togglePopup() {
   var popupContainer = document.getElementById("popupContainer");

@@ -53,9 +53,28 @@
         >
       </div>
       <div class="row mt-3">
-        <button class="btn btn-light active" onclick="togglePopup()">
+        <button class="btn btn-light active" onclick="toggleCheckPopup()">
           Tambah Pemain
         </button>
+      </div>
+    </div>
+
+    <div id="popupCheckContainer" class="popup-form-container">
+      <!-- Pop up form -->
+      <div class="popup-form card" style="width: 18rem">
+        <form id="myForm" class="card-body">
+          <label for="namaInput" class="form-label">Masukan Kode</label>
+          <input
+            type="text"
+            class="form-control"
+            name="Kode"
+            placeholder="Masukan kodenya"
+            autocomplete="off"
+          /><br />
+          <button type="button" class="btn btn-primary" onclick="checkPopup()">
+            Submit
+          </button>
+        </form>
       </div>
     </div>
 
@@ -70,34 +89,35 @@
             class="form-control"
             name="Nama"
             id="namaInput"
+            autocomplete="off"
           /><br />
 
-          <label for="namaInput" class="form-label">1st</label>
+          <label for="namaInput" class="form-label disapear">1st</label>
           <input
             type="text"
-            class="form-control"
+            class="form-control disapear"
             name="1st"
             id="namaInput"
             value="0"
-          /><br />
+          />
 
-          <label for="namaInput" class="form-label">Biasa</label>
+          <label for="namaInput" class="form-label disapear">Biasa</label>
           <input
             type="text"
-            class="form-control"
+            class="form-control disapear"
             name="Biasa"
             id="namaInput"
             value="0"
-          /><br />
+          />
 
-          <label for="namaInput" class="form-label">Telek</label>
+          <label for="namaInput" class="form-label disapear">Telek</label>
           <input
             type="text"
-            class="form-control"
+            class="form-control disapear"
             name="Telek"
             id="namaInput"
             value="0"
-          /><br />
+          />
 
           <button type="button" class="btn btn-primary" onclick="SubForm()">
             Submit
