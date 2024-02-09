@@ -25,7 +25,7 @@ fetch(url)
 
     data.table.cols.push({
       id: "F",
-      label: "Total Poin",
+      label: "Poin",
       type: "number",
       pattern: "General",
     });
