@@ -121,19 +121,17 @@ function togglePopup() {
 // Fungsi untuk menangani submit form
 
 
-function SubForm() {
+function SubForm (){
   $.ajax({
-    url: "https://api.apispreadsheets.com/data/jBsKUmd17UZFpWO4/",
-    type: "post",
-    data: $("#myForm").serializeArray(),
-    success: function () {
-      alert("Form Data Submitted :)");
+    url:"https://api.apispreadsheets.com/data/jBsKUmd17UZFpWO4/",
+    type:"post",
+    data:$("#myForm").serializeArray(),
+    success: function(){
+      alert("Form Data Submitted :)")
     },
-    error: function () {
-      alert("There was an error :(");
-    },
+    error: function(){
+      alert("There was an error :(")
+    }
   });
   togglePopup();
 }
-
-console.log("test");
