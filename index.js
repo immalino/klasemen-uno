@@ -44,12 +44,6 @@ fetch(url)
       row.c.push({ v: totalTerakhir });
     });
 
-    let counter = 1;
-    data.table.rows.forEach((row) => {
-      row.c.unshift({ v: counter.toString() });
-      counter++;
-    });
-
     const row = document.createElement("tr");
     output1.append(row);
     data.table.cols.forEach((heading) => {
@@ -65,6 +59,12 @@ fetch(url)
       return lastVValueB - lastVValueA;
     });
 
+    let counter = 1;
+    data.table.rows.forEach((row) => {
+      row.c.unshift({ v: counter.toString() });
+      counter++;
+    });
+
     data.table.rows.forEach((main) => {
       const container = document.createElement("tr");
       output2.append(container);
@@ -76,11 +76,13 @@ fetch(url)
     });
   });
 
-
-  // Fungsi untuk menampilkan/menyembunyikan pop up check
+// Fungsi untuk menampilkan/menyembunyikan pop up check
 function toggleCheckPopup() {
   var popupCheckContainer = document.getElementById("popupCheckContainer");
-  if (popupCheckContainer.style.display === "none" || popupCheckContainer.style.display === "") {
+  if (
+    popupCheckContainer.style.display === "none" ||
+    popupCheckContainer.style.display === ""
+  ) {
     popupCheckContainer.style.display = "block";
     // Fokuskan input nama saat pop up ditampilkan
     document.getElementById("namaInput").focus();
@@ -96,7 +98,7 @@ function checkPopup() {
   // Memeriksa apakah kode yang dimasukkan sesuai
   if (kode === "112233") {
     // Jika sesuai, lakukan aksi yang diinginkan, misalnya menampilkan popup berikutnya
-    toggleCheckPopup()
+    toggleCheckPopup();
     togglePopup();
   } else {
     // Jika tidak sesuai, beri pesan peringatan
@@ -105,11 +107,13 @@ function checkPopup() {
   }
 }
 
-
 // Fungsi untuk menampilkan/menyembunyikan pop up form
 function togglePopup() {
   var popupContainer = document.getElementById("popupContainer");
-  if (popupContainer.style.display === "none" || popupContainer.style.display === "") {
+  if (
+    popupContainer.style.display === "none" ||
+    popupContainer.style.display === ""
+  ) {
     popupContainer.style.display = "block";
     // Fokuskan input nama saat pop up ditampilkan
     document.getElementById("namaInput").focus();
@@ -120,18 +124,17 @@ function togglePopup() {
 
 // Fungsi untuk menangani submit form
 
-
-function SubForm (){
+function SubForm() {
   $.ajax({
-    url:"https://api.apispreadsheets.com/data/jBsKUmd17UZFpWO4/",
-    type:"post",
-    data:$("#myForm").serializeArray(),
-    success: function(){
-      alert("Form Data Submitted :)")
+    url: "https://api.apispreadsheets.com/data/jBsKUmd17UZFpWO4/",
+    type: "post",
+    data: $("#myForm").serializeArray(),
+    success: function () {
+      alert("Form Data Submitted :)");
     },
-    error: function(){
-      alert("There was an error :(")
-    }
+    error: function () {
+      alert("There was an error :(");
+    },
   });
   togglePopup();
 }
