@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/v/bs5/jqc-1.12.4/dt-1.13.1/datatables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/fixedheader/3.3.1/css/fixedHeader.bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap.min.css"
+    />
+    <title>Daftar Stok Barang Toko Perlengkapan Bayi</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h3 class="text-center mb-4 mt-4">
+            Daftar Stok Barang Toko Perlengkapan Bayi
+          </h3>
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" id="tambahPemain">
+            + Tambah Pemain
+          </button>
+          <button type="button" class="btn btn-primary" id="inputPoin">
+            Input Poin
+          </button>
+          <br />
+          <br />
+          <table
+            id="table-data"
+            class="table table-striped table-bordered mt-2 mb-2"
+            style="width: 100%"
+          ></table>
+          <br />
+          <br />
+        </div>
+      </div>
+    </div>
+    <!-- Modal Tambah -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Tambah Pemain</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label"
+                  >Nama Pemain</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="namaPemain"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-dismiss="modal"
+            >
+              Simpan
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Edit -->
+    <div class="modal" id="myModal-edit">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Edit Pemain</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label"
+                  >Nama Pemain</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="namaPemain-edit"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">1st</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pertamaPemain-edit"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Biasa</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="biasaPemain-edit"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Telek</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="telekPemain-edit"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div id="modal-footer-edit" class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-dismiss="modal"
+            >
+              Simpan
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/v/bs5/jqc-1.12.4/dt-1.13.1/datatables.min.js"
+    ></script>
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.3.1/js/dataTables.fixedHeader.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        const BASE_URL =`https://script.google.com/macros/s/AKfycbwqyAc8leYkLMoFRUf3-C078KHq-al5-gqW-lTsCVGzYXs0OzhDjBU5OCuxz9OOFkqNMA/exec`;
+
+        
+
+
+          const table = $("#table-data").DataTable({
+            ajax: BASE_URL + "?action=get-product",
+            columns: [
+              { title: "Nama", data: "nama" },
+              { title: "1st", data: "pertama" },
+              { title: "Biasa", data: "biasa" },
+              { title: "Telek", data: "telek" },
+              {
+                title: "Edit",
+                targets: -1,
+                data: null,
+                defaultContent:
+                  '<button class="btn btn-warning" id="edit">Edit</button>',
+              },
+            ],
+            rowId: "nama",
+            serverSide: true, // Mengubah liveAjax menjadi serverSide
+            responsive: true,
+          });
+
+              $("#tambahPemain").on("click", () => {
+          $("#myModal").modal("show");
+          $("#myModal .modal-title").text("Tambah Pemain");
+        });
+
+        $("#table-data tbody").on("click", "#edit", function () {
+          const data = table.row($(this).parents("tr")).data();
+          console.log(data);
+          $("#namaPemain-edit").val(data.nama);
+          $("#pertamaPemain-edit").val(data.pertama);
+          $("#biasaPemain-edit").val(data.biasa);
+          $("#telekPemain-edit").val(data.telek);
+          $("#myModal-edit").modal("show");
+          $("#myModal-edit .modal-title").text("Edit Pemain");
+        });
+
+        $(".modal-footer .btn-success").on("click", () => {
+          const namaPemain = $("#namaPemain").val();
+
+          if (
+            namaPemain == ""
+          ) {
+            alert("Harap lengkapi semua field!");
+            return;
+          }
+
+          let api_URL = `${BASE_URL}?action=insert&nama=${namaPemain}&pertama=${pertamaPemain}&biasa=${biasaPemain}&telek=${telekPemain}`;
+
+          $.getJSON(api_URL, function (result) {
+            alert(result.message);
+            location.reload();
+          });
+        });
+
+        $("#modal-footer-edit .btn-success").on("click", () => {
+          const namaPemain = $("#namaPemain-edit").val();
+          const pertamaPemain = $("#pertamaPemain-edit").val();
+          const biasaPemain = $("#biasaPemain-edit").val();
+          const telekPemain = $("#telekPemain-edit").val();
+
+          if (
+            namaPemain == "" ||
+            pertamaPemain == "" ||
+            biasaPemain == "" ||
+            telekPemain == ""
+          ) {
+            alert("Harap lengkapi semua field!");
+            return;
+          }
+
+          let api_URL = `${BASE_URL}?action=update&nama=${namaPemain}&pertama=${pertamaPemain}&biasa=${biasaPemain}&telek=${telekPemain}`;
+
+          $.getJSON(api_URL, function (result) {
+            alert(result.message);
+            location.reload();
+          });
+        });
+
+        $.getJSON(BASE_URL + "?action=get-product", function (response) {
+          // Simpan data dari respons ke dalam variabel global
+          const apiData = response;
+          console.log(apiData);
+        });
+
+      });
+    </script>
+  </body>
+</html>
