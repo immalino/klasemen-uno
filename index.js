@@ -100,12 +100,18 @@ function checkPopup() {
     // Jika sesuai, lakukan aksi yang diinginkan, misalnya menampilkan popup berikutnya
     toggleCheckPopup();
     togglePopup();
-  } else {
+  } else if (kode === "223344"){
+
+    window.location.href = "https://immalino.github.io/klasemen-uno/control/"
+
+  }
+  else {
     // Jika tidak sesuai, beri pesan peringatan
     alert("Kode yang dimasukkan tidak valid. Silakan coba lagi.");
     toggleCheckPopup();
   }
 }
+
 
 // Fungsi untuk menampilkan/menyembunyikan pop up form
 function togglePopup() {

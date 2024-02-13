@@ -10,43 +10,65 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">UNO</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="../control/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Top Telek</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="toggleCheckPopup()">Input Score</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <div class="container text-center mt-5">
-      <h2 class="text-start">Top Global Telek</h2>
+      <h3 class="text-start">Top Global Telek</h3>
       <table class="table table-bordered mt-3">
         <thead class="output1 table-light"></thead>
         <tbody class="output2"></tbody>
       </table>
     </div>
-    <div class="container text-center mt-3">
-      <table class="table">
-        <thead class="table-light">
-          <tr>
-            <th scope="col" colspan="3">Poin</th>
-          </tr>
-        </thead>
-        <tbody class="container">
-          <tr class="row">
-            <th class="col">1st</th>
-            <th class="col">Biasa</th>
-            <th class="col">Telek</th>
-          </tr>
-          <tr class="row">
-            <td class="col">2</td>
-            <td class="col">1</td>
-            <td class="col">-1</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  
 
-    <div class="container mt-3">
-      <div class="row">
-        <a class="btn btn-light active" href="https://immalino.github.io/klasemen-uno/" role="button"
-          >Kembali ke <strong>"The Real Top Global"</strong></a
-        >
+    <div id="popupCheckContainer" class="popup-form-container">
+      <!-- Pop up form -->
+      <div class="popup-form card" style="width: 18rem">
+        <form id="myInputForm" class="card-body">
+          <label for="namaInput" class="form-label">Masukan Kode</label>
+          <input
+            type="text"
+            class="form-control"
+            name="Kode"
+            autocomplete="off"
+          /><br />
+          <button type="button" class="btn btn-primary" onclick="checkPopup()">
+            Submit
+          </button>
+        </form>
       </div>
     </div>
 
@@ -118,6 +140,36 @@
             });
           });
         });
+        function toggleCheckPopup() {
+  var popupCheckContainer = document.getElementById("popupCheckContainer");
+  if (
+    popupCheckContainer.style.display === "none" ||
+    popupCheckContainer.style.display === ""
+  ) {
+    popupCheckContainer.style.display = "block";
+    // Fokuskan input nama saat pop up ditampilkan
+    document.getElementById("namaInput").focus();
+  } else {
+    popupCheckContainer.style.display = "none";
+  }
+}
+
+function checkPopup() {
+  // Mengambil nilai input kode
+  var kode = document.getElementsByName("Kode")[0].value;
+
+  // Memeriksa apakah kode yang dimasukkan sesuai
+  if (kode === "223344"){
+
+    window.location.href = "https://immalino.github.io/klasemen-uno/control/"
+
+  }
+  else {
+    // Jika tidak sesuai, beri pesan peringatan
+    alert("Kode yang dimasukkan tidak valid. Silakan coba lagi.");
+    toggleCheckPopup();
+  }
+}
     </script>
   </body>
 </html>

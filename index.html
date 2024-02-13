@@ -14,8 +14,41 @@
   </head>
 
   <body>
-    <div class="container text-center mt-5">
-      <h2 class="text-start">The Real Top Global</h2>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">UNO</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./top-telek/index.html">Top Telek</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="toggleCheckPopup()">Tambah Pemain</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="toggleCheckPopup()">Input Score</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container text-center mt-3">
+      <h3 class="text-start">The Real Top Global</h3>
       <table class="table table-bordered mt-3">
         <thead class="output1 table-light"></thead>
         <tbody class="output2"></tbody>
@@ -43,26 +76,10 @@
       </table>
     </div>
 
-    <div class="container mt-3">
-      <div class="row">
-        <a
-          class="btn btn-light active"
-          href="https://immalino.github.io/klasemen-uno/top-telek/"
-          role="button"
-          >Klik untuk melihat <strong>"Top Global Telek"</strong></a
-        >
-      </div>
-      <div class="row mt-3">
-        <button class="btn btn-light active" onclick="toggleCheckPopup()">
-          Tambah Pemain
-        </button>
-      </div>
-    </div>
-
     <div id="popupCheckContainer" class="popup-form-container">
       <!-- Pop up form -->
       <div class="popup-form card" style="width: 18rem">
-        <form id="myCheckForm" class="card-body">
+        <form id="myInputForm" class="card-body">
           <label for="namaInput" class="form-label">Masukan Kode</label>
           <input
             type="text"
