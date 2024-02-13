@@ -1,280 +1,207 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.datatables.net/v/bs5/jqc-1.12.4/dt-1.13.1/datatables.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.datatables.net/fixedheader/3.3.1/css/fixedHeader.bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap.min.css"
-    />
-    <title>Daftar Stok Barang Toko Perlengkapan Bayi</title>
-  </head>
 
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <h3 class="text-center mb-4 mt-4">
-            Daftar Stok Barang Toko Perlengkapan Bayi
-          </h3>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+</head>
 
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" id="tambahPemain">
-            + Tambah Pemain
-          </button>
-          <button type="button" class="btn btn-primary" id="inputPoin">
-            Input Poin
-          </button>
-          <br />
-          <br />
-          <table
-            id="table-data"
-            class="table table-striped table-bordered mt-2 mb-2"
-            style="width: 100%"
-          ></table>
-          <br />
-          <br />
+<body>
+  <div class="container text-center mt-4">
+    <div class="row">
+      <div class="col">
+        <h4>1st</h4>
+        <div id="satu" class="btn-group-vertical" role="group" aria-label="Basic checkbox toggle button group">
+
         </div>
       </div>
-    </div>
-    <!-- Modal Tambah -->
-    <div class="modal" id="myModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Tambah Pemain</h4>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
-          </div>
+      <div class="col">
+        <h4>Biasa</h4>
+        <div id="dua" class="btn-group-vertical" role="group" aria-label="Basic checkbox toggle button group">
 
-          <!-- Modal body -->
-          <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label"
-                  >Nama Pemain</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="namaPemain"
-                  required
-                />
-              </div>
-            </form>
-          </div>
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-success"
-              data-bs-dismiss="modal"
-            >
-              Simpan
-            </button>
-          </div>
         </div>
       </div>
-    </div>
+      <div class="col">
+        <h4>Telek</h4>
+        <div id="tiga" class="btn-group-vertical" role="group" aria-label="Basic checkbox toggle button group">
 
-    <!-- Modal Edit -->
-    <div class="modal" id="myModal-edit">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Edit Pemain</h4>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
-          </div>
-
-          <!-- Modal body -->
-          <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label"
-                  >Nama Pemain</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="namaPemain-edit"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">1st</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="pertamaPemain-edit"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Biasa</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="biasaPemain-edit"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Telek</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="telekPemain-edit"
-                  required
-                />
-              </div>
-            </form>
-          </div>
-          <!-- Modal footer -->
-          <div id="modal-footer-edit" class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-success"
-              data-bs-dismiss="modal"
-            >
-              Simpan
-            </button>
-          </div>
         </div>
       </div>
+
+      <div class="container mt-4">
+        <button id="record-button" type="button" class="btn btn-primary" style="width: 100%;">
+          SUBMIT
+        </button>
+      </div>
+
     </div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://cdn.datatables.net/v/bs5/jqc-1.12.4/dt-1.13.1/datatables.min.js"
-    ></script>
-    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/fixedheader/3.3.1/js/dataTables.fixedHeader.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        const BASE_URL =`https://script.google.com/macros/s/AKfycbwqyAc8leYkLMoFRUf3-C078KHq-al5-gqW-lTsCVGzYXs0OzhDjBU5OCuxz9OOFkqNMA/exec`;
+  <div id="popupContainer" class="popup-form-container p-2 justify-content-center align-items-center">
+    <div class="lds-facebook"><div></div><div></div><div></div></div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script>
+    const BASE_URL = `https://script.google.com/macros/s/AKfycbz-nkaAfPXZVf0xT5QWx1LPrp4gQgcVaOs80AygAyfEUw6sKOJ7TUeWWpxh1Ax1yXT8vw/exec`;
 
-        
+    $.getJSON(BASE_URL + "?action=get-product", function (response) {
+      // Simpan data dari respons ke dalam variabel global
+      const apiData = response;
+      const dataku = apiData.data;
+      console.log(dataku)
+
+      // Ambil referensi ke div yang akan berisi checkbox dan radio button
+      const radioContainer = document.getElementById("satu");
+      const checkboxContainer = document.getElementById("dua");
+      const radioContainer2 = document.getElementById("tiga");
+
+      // Iterasi melalui setiap entri dalam data JSON
+      dataku.forEach((item, index) => {
 
 
-          const table = $("#table-data").DataTable({
-            ajax: BASE_URL + "?action=get-product",
-            columns: [
-              { title: "Nama", data: "nama" },
-              { title: "1st", data: "pertama" },
-              { title: "Biasa", data: "biasa" },
-              { title: "Telek", data: "telek" },
-              {
-                title: "Edit",
-                targets: -1,
-                data: null,
-                defaultContent:
-                  '<button class="btn btn-warning" id="edit">Edit</button>',
-              },
-            ],
-            rowId: "nama",
-            serverSide: true, // Mengubah liveAjax menjadi serverSide
-            responsive: true,
-          });
 
-              $("#tambahPemain").on("click", () => {
-          $("#myModal").modal("show");
-          $("#myModal .modal-title").text("Tambah Pemain");
-        });
 
-        $("#table-data tbody").on("click", "#edit", function () {
-          const data = table.row($(this).parents("tr")).data();
-          console.log(data);
-          $("#namaPemain-edit").val(data.nama);
-          $("#pertamaPemain-edit").val(data.pertama);
-          $("#biasaPemain-edit").val(data.biasa);
-          $("#telekPemain-edit").val(data.telek);
-          $("#myModal-edit").modal("show");
-          $("#myModal-edit .modal-title").text("Edit Pemain");
-        });
 
-        $(".modal-footer .btn-success").on("click", () => {
-          const namaPemain = $("#namaPemain").val();
+        // Buat elemen radio button 
+        const radioButton = document.createElement("input");
+        radioButton.type = "radio";
+        radioButton.className = "btn-check btn-pertama";
+        radioButton.name = "vbtn-radio"; // Pastikan semua radio button memiliki nama yang sama agar saling terhubung
+        radioButton.value = item.nama; // Set nilai radio button sesuai dengan nama pemain
+        radioButton.id = `vbtn-radio-${index + 1}`;
+        radioButton.autocomplete = "off";
 
-          if (
-            namaPemain == ""
-          ) {
-            alert("Harap lengkapi semua field!");
-            return;
-          }
+        // Buat label untuk radio button
+        const label = document.createElement("label");
+        label.className = "btn btn-outline-danger";
+        label.htmlFor = `vbtn-radio-${index + 1}`;
+        label.textContent = item.nama;
 
-          let api_URL = `${BASE_URL}?action=insert&nama=${namaPemain}&pertama=${pertamaPemain}&biasa=${biasaPemain}&telek=${telekPemain}`;
+        // Tambahkan radio button dan label ke dalam container
+        radioContainer.appendChild(radioButton);
+        radioContainer.appendChild(label);
 
-          $.getJSON(api_URL, function (result) {
-            alert(result.message);
-            location.reload();
-          });
-        });
 
-        $("#modal-footer-edit .btn-success").on("click", () => {
-          const namaPemain = $("#namaPemain-edit").val();
-          const pertamaPemain = $("#pertamaPemain-edit").val();
-          const biasaPemain = $("#biasaPemain-edit").val();
-          const telekPemain = $("#telekPemain-edit").val();
 
-          if (
-            namaPemain == "" ||
-            pertamaPemain == "" ||
-            biasaPemain == "" ||
-            telekPemain == ""
-          ) {
-            alert("Harap lengkapi semua field!");
-            return;
-          }
 
-          let api_URL = `${BASE_URL}?action=update&nama=${namaPemain}&pertama=${pertamaPemain}&biasa=${biasaPemain}&telek=${telekPemain}`;
 
-          $.getJSON(api_URL, function (result) {
-            alert(result.message);
-            location.reload();
-          });
-        });
+        // Buat elemen checkbox
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "btn-biasa  btn-check";
+        // checkbox.name = "checkbox"; // Atur nama yang sama untuk semua checkbox agar dapat dipilih secara independen
+        checkbox.value = item.nama; // Set nilai checkbox sesuai dengan nama pemain
+        checkbox.id = `checkbox-${index + 1}`;
 
-        $.getJSON(BASE_URL + "?action=get-product", function (response) {
-          // Simpan data dari respons ke dalam variabel global
-          const apiData = response;
-          console.log(apiData);
-        });
+        // Buat label untuk checkbox
+        const labelCheckbox = document.createElement("label");
+        labelCheckbox.className = "btn btn-outline-primary";
+        labelCheckbox.htmlFor = `checkbox-${index + 1}`;
+        labelCheckbox.textContent = item.nama;
 
+        // Tambahkan checkbox dan label ke dalam container
+        checkboxContainer.appendChild(checkbox);
+        checkboxContainer.appendChild(labelCheckbox);
+
+
+
+
+
+        // Buat elemen radio button
+        const radioButton2 = document.createElement("input");
+        radioButton2.type = "radio";
+        radioButton2.className = "btn-check btn-telek";
+        radioButton2.name = "radio"; // Atur nama yang sama untuk semua radio button agar hanya satu yang dapat dipilih
+        radioButton2.value = item.nama; // Set nilai radio button sesuai dengan nama pemain
+        radioButton2.id = `radio-telek-${index + 1}`;
+        radioButton2.autocomplete = "off";
+
+        // Buat label untuk radio button
+        const labelRadio2 = document.createElement("label");
+        labelRadio2.className = "btn btn-outline-danger";
+        labelRadio2.htmlFor = `radio-telek-${index + 1}`;
+        labelRadio2.textContent = item.nama;
+
+        // Tambahkan radio button dan label ke dalam container
+        radioContainer2.appendChild(radioButton2);
+        radioContainer2.appendChild(labelRadio2);
       });
-    </script>
-  </body>
+
+
+
+
+
+
+      // Dapatkan tombol rekam
+      const recordButton = document.getElementById("record-button");
+
+      // Tambahkan event listener pada tombol rekam
+      recordButton.addEventListener("click", () => {
+
+        const newData = dataku;
+
+        // Iterasi melalui setiap radio button pertama
+        document.querySelectorAll(".btn-pertama").forEach((radio, index) => {
+          if (radio.checked && newData[index]) {
+            // Jika checkbox yang diklik dan objek ditemukan, tambahkan 1 ke nilai "Biasa" di dataJson
+            newData[index]["pertama"]++;
+          }
+        });
+
+        // Iterasi melalui setiap checkbox
+        document.querySelectorAll('.btn-biasa').forEach((checkbox, index) => {
+          if (checkbox.checked && newData[index]) {
+            // Jika checkbox yang diklik, tambahkan 1 ke nilai "biasa" di newData
+            newData[index]["biasa"]++;
+          }
+        });
+
+        // Iterasi melalui setiap radio button telek
+        document
+          .querySelectorAll('.btn-telek')
+          .forEach((radio, index) => {
+            if (radio.checked && newData[index]) {
+              // Jika radio button yang diklik, tambahkan 1 ke nilai "1st" di dataJson
+              newData[index]["telek"]++;
+            }
+          });
+
+          function togglePopup() {
+            var popupContainer = document.getElementById("popupContainer");
+            if (
+              popupContainer.style.display === "none" ||
+              popupContainer.style.display === ""
+            ) {
+              popupContainer.style.display = "flex";
+            } else {
+              popupContainer.style.display = "none";
+            }
+          }
+
+          togglePopup();
+          
+          const dataPush = JSON.stringify(newData).toString();
+          let api_URL = `${BASE_URL}?action=data&data=${dataPush}`;
+          
+          $.getJSON(api_URL, function (result) {
+          togglePopup();
+          alert(result.message);
+          location.reload();
+        });
+      });
+    });
+
+
+  </script>
+</body>
+
 </html>
