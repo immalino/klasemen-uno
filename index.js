@@ -136,7 +136,9 @@ function SubForm() {
     type: "post",
     data: $("#myForm").serializeArray(),
     success: function () {
-      alert("Form Data Submitted :)");
+      alert("Berhasil menambahkan pemain");
+      location.reload();
+
     },
     error: function () {
       alert("There was an error :(");
