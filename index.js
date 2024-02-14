@@ -130,15 +130,30 @@ function togglePopup() {
 
 // Fungsi untuk menangani submit form
 
+function toggleLoadPopup() {
+  var popupContainer = document.getElementById("popupLoadContainer");
+  if (
+    popupContainer.style.display === "none" ||
+    popupContainer.style.display === ""
+  ) {
+    popupContainer.style.display = "flex";
+  } else {
+    popupContainer.style.display = "none";
+  }
+}
+
+
 function SubForm() {
+  toggleLoadPopup();
+
   $.ajax({
     url: "https://api.apispreadsheets.com/data/jBsKUmd17UZFpWO4/",
     type: "post",
     data: $("#myForm").serializeArray(),
     success: function () {
-      alert("Berhasil menambahkan pemain");
-      location.reload();
-
+      toggleLoadPopup();
+      alert("Form Data Submitted :)");
+      location.reload()
     },
     error: function () {
       alert("There was an error :(");
