@@ -152,7 +152,7 @@ function SubForm() {
     data: $("#myForm").serializeArray(),
     success: function () {
       toggleLoadPopup();
-      alert("Form Data Submitted :)");
+      alert("Berhasil Menambahkan Pemain :)");
       location.reload()
     },
     error: function () {
