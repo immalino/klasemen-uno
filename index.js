@@ -22,13 +22,20 @@ fetch(url)
       type: "number",
       pattern: "General",
     });
-
+    data.table.cols.push({
+      id: "F",
+      label: "WR",
+      type: "number",
+      pattern: "General",
+    });
+    
     data.table.cols.push({
       id: "F",
       label: "Poin",
       type: "number",
       pattern: "General",
     });
+
 
     data.table.rows.forEach((row) => {
       const nilai1 = row.c[1].v;
@@ -39,8 +46,12 @@ fetch(url)
 
       const totalTerakhir = row.c[1].v * 2 + row.c[2].v + row.c[3].v * -1;
 
+      let winRate = totalTerakhir * 100 / totalPertama;
+      winRate = Math.round(winRate);
+
       row.c.splice(1, 0, { v: totalPertama });
 
+      row.c.push({ v: winRate + "%" });
       row.c.push({ v: totalTerakhir });
     });
 

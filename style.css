@@ -1,4 +1,14 @@
 /* Style untuk pop up form */
+.table {
+  font-size: .8rem;
+}
+
+@media (min-width: 576px) { 
+  .table {
+    font-size: 1rem;
+  }
+ }
+
 .popup-form-container {
   display: none;
   position: fixed;
